@@ -1,17 +1,28 @@
-
 ## Function returns a list of 4 element functions 
 ## whihch (1) get the matrix, (2) set the matrix, (3) get the matrix inverse and 
 ## (4) set the matrix inverse 
 ## Argument which function accepts is the initialized matrix
 makeCacheMatrix <- function(x = matrix()) {
+  #initialize the cache variable to NULL which will be used 
+  #to hold the inverse matrix
   m <- NULL
+  
+  #function used to initialize matrix and cache variable
   set <- function(y) {
     x <<- y
     m <<- NULL
   }
+  
+  # function retrieves the matrix
   get <- function() x
+  
+  # function sets the cache variable
   setInverse <- function(inverse) m <<- inverse
+  
+  # function gets the cache variabel holding matrix inverse
   getInverse <- function() m
+  
+  # put the list of four functions above defined as return value
   list(set = set, get = get,
        setInverse = setInverse,
        getInverse = getInverse)
